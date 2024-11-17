@@ -1,0 +1,203 @@
+{%  load  static   %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>
+    {% block title %}
+    {% endblock title %}
+
+   </title>
+  <meta name="description" content="ecommerce website we deliver product in 1 hour">
+  <meta name="amazon,flipkart,selling,products" content="ecommerce">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+ 
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static '/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+  <!-- Main CSS File -->
+  <link href="{% static '/assets/css/main.css' %}" rel="stylesheet">
+
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="/" class="logo">
+         <img src=""  alt="" class="img-fluid " ><h1>Tech Trands</h1></a>
+  
+        
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/" class="active">Home</a></li>
+          <li><a "active" href="/about">About</a></li>
+          <li><a "active" href="/checkout">Checkout</a></li>
+          <li><a "active" href="/profile">My Profile</a></li>
+          <button type="button" class="nav-link scrollto bg-danger p-3 m-2 text-white" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" ><i class=" fa-solid fa-cart-shopping"></i>  Cart (<span id="cart">0</span>)
+          </button>
+
+
+
+          {% if request.user.is_authenticated %}
+          <li><a class="active" href="/auth/logout/">logout<i class="fa-solid fa-right-from-bracket"></i>
+            
+          </a></li>
+          {% else %}
+          <li class="dropdown"><a href="#"><span>SignIn</span><i class="fa-solid fa-user"></i></a>
+            <ul>
+              <li><a href="/auth/signup">Sign Up<i class="fa-solid fa-user"></i></a></li>
+              <li><a href="/auth/login">login</a></li>
+             
+            </ul>
+          </li>
+
+          {% endif %}
+          
+              
+              
+              
+           
+       
+          <li><a class="nav-link Scrollto bg-dark p-3 m-2" href="/contact"><i class="fa-solid fa-address-book"></i>Contact</a></li>
+          
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <main class="main">
+
+  
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <!--<img src="static/assets/img/hero-bg.jpg" alt="" data-aos="fade-in">-->
+
+      <div class="container text-center" data-aos="fade-up" data-aos-delay="100">
+       
+       {% block content %}
+
+       {% endblock content %}
+      </div>
+
+    </section><!-- /Hero Section -->
+{% block body %}
+
+{% endblock body %}
+
+    
+  </main>
+  
+
+  <footer id="footer" class="footer dark-background">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename"></span>
+          </a>
+          <h1>Shop Non-Stop on Tech Trands</h1>
+          <div>
+            <p>Trusted by more than 1 Crore Indians
+              Cash on Delivery | Free Delivery</p>
+          </div>
+           
+            <h4>KEEP IN TOUCH</h4>
+          <div class="social-links d-flex mt-4">
+           
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+          <br>
+          <br>
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <!--<div class="col-lg-2 col-6 footer-links">
+          <h4>KEEP IN TOUCH</h4>
+          <ul>
+            <i class="fa-brands fa-facebook "></i>
+            <i class="fa-brands fa-square-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-square-youtube"></i>
+          </ul>
+        </div>-->
+
+        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+          <h4>Contact Us</h4>
+          <p>A108 Adam Street</p>
+          <p>New York, NY 535022</p>
+          <p>United States</p>
+          <p class="mt-4"><strong>Phone:</strong> <span>+91 7889445908</span></p>
+          <p><strong>Email:</strong> <span>info@example.com</span></p>
+        </div>
+        
+      </div>
+      <br>
+      <div>
+      <h4><i class="fa-solid fa-check"></i>100% ORIGINAL guarantee for<br> all products at myntra.com</h4>
+      </div>
+      <br>
+      <div>
+        <h4><i class="fa-solid fa-right-left"></i>Return within 14days of receiving your order</h4>
+      </div>
+    </div>
+
+
+    
+    
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static '/assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static '/assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static '/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static '/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+  <script src="{% static '/assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static '/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Main JS File -->
+  <script src="{% static '/assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
